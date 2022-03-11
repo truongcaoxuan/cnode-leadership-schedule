@@ -7,6 +7,7 @@ git https://github.com/truongcaoxuan/cnode-leadership-schedule.git
 
 ## Step2: Copy files and scripts
 ```
+cd cnode-leadership-schedule
 cp pool-list.json /opt/cardano/cnode/files/
 cp check-leadership.sh /opt/cardano/cnode/scripts/
 ```
