@@ -38,7 +38,7 @@ echo "${currentDate}" > /tmp/data-leadership.txt
 #######################################################
 echo "-------------------------------------------------"
 net="--mainnet"
-read -p "Enter network 1=mainnet, 2=testnet (default=1): " NET
+read -p "Enter network 1=mainnet, 2=testnet (other=default=1): " NET
 if [[ "$NET" == "2" ]]; then
     net="--testnet-magic 42"
     echo "Check leadership-schedule for ${net}"
@@ -51,7 +51,7 @@ fi
 #######################################################
 echo "-------------------------------------------------"
 epoch="--next"
-read -p "Enter Epoch 1=next, 2=current (default=1): " EPOCH
+read -p "Enter Epoch 1=next, 2=current (other=default=1): " EPOCH
 if [[ "$EPOCH" == "2" ]]; then
     epoch="--current"
     echo "Check leadership-schedule for ${epoch}"
