@@ -79,11 +79,11 @@ do
     echo "${poolName} leadership-schedule processing" 
     echo "${poolName} leadership-schedule" >> /tmp/data-leadership.txt
     cardano-cli query leadership-schedule \
-     ${net} \
+     "${net}" \
      --genesis /opt/cardano/cnode/files/shelley-genesis.json \
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
-     ${epoch} | tee -a "${DATA_DIR}/data-leadership.txt"
+     "${epoch}" | tee -a "${DATA_DIR}/data-leadership.txt"
     echo "._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._." 
     echo "Check leadership-schedule for ${poolName} finished "
     echo "**************************************************"
