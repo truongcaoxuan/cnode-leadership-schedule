@@ -12,7 +12,7 @@ DATA_DIR="/tmp"                      # Folder where your data leadership schedul
 #######################################################
 # Get poolTicker list                                 #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 poolTicker=$(cat /opt/cardano/cnode/files/pool-list.json | jq -r 'keys[]')
 echo "Ticker list:"
 echo "${poolTicker}"
@@ -20,14 +20,14 @@ echo "${poolTicker}"
 #######################################################
 # Get number poolTicker                               #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 totalPool=$(echo -n "${poolTicker}" | grep -c '^')
 echo "Total Pool Ticker: ${totalPool}"
 
 #######################################################
 # Get current Date                                    #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 currentDate=$(TZ="Asia/Ho_Chi_Minh" date +"%A, %d/%m/%Y %H:%M")
 echo "Current Date and Time is: " 
 echo "${currentDate}"
@@ -36,7 +36,7 @@ echo "${currentDate}" > "${DATA_DIR}/data-leadership.txt"
 #######################################################
 # Chose mainnet/testnet parameters                    #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 net="--mainnet"
 read -p "Enter network 1=mainnet, 2=testnet (other=default=1): " NET
 if [[ "$NET" == "2" ]]; then
@@ -49,7 +49,7 @@ fi
 #######################################################
 # Chose the epoch parameters                          #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 epoch="--next"
 read -p "Enter Epoch 1=next, 2=current (other=default=1): " EPOCH
 if [[ "$EPOCH" == "2" ]]; then
@@ -62,7 +62,7 @@ fi
 #######################################################
 # Processing check leadership-schedule                #
 #######################################################
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 i=0
 for poolName in ${poolTicker}
 do
@@ -84,14 +84,14 @@ do
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
      "${epoch}" | tee -a "${DATA_DIR}/data-leadership.txt"
-    echo "[-].[-].[-].[-].[-].[-].[-].[-].[-].[-].[-].[-].[-].[-].[-]" 
+    printf '.[-].%.0s' {1..15}; printf '\n' 
     echo "Check leadership-schedule for ${poolName} finished "
-    echo "**************************************************"
+    printf '*%.0s' {1..50}; printf '\n'
     
   fi
 done
 
-echo "-------------------------------------------------"
+printf -- '-%.0s' {1..50}; printf '\n'
 #######################################################
 # Notify the result                                   #
 #######################################################
