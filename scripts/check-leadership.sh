@@ -74,7 +74,7 @@ do
      --genesis /opt/cardano/cnode/files/shelley-genesis.json \
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
-     ${epoch} >> /tmp/data-leadership.txt
+     ${epoch} | tee -a /tmp/data-leadership.txt
     echo "._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._." 
     echo "Check leadership-schedule for ${poolName} finished "
     echo "**************************************************"
@@ -86,4 +86,4 @@ echo "-------------------------------------------------"
 #######################################################
 # Notify the result                                   #
 #######################################################
-echo " Result: [${i}/${totalPool}] DONE! "
+echo " Result: [${i}/${totalPool}] SUCCESS! "
