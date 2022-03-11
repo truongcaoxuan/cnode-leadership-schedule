@@ -15,7 +15,7 @@ cp check-leadership.sh /opt/cardano/cnode/scripts/
 ```
 nano /opt/cardano/cnode/files/pool-list.json
 ```
-*With JSON Format*
+*With JSON Format example in pool-list.json files*
 
 
 ## Step4: Run check leadership script
