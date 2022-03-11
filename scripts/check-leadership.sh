@@ -84,7 +84,7 @@ do
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
      "${epoch}" | tee -a "${DATA_DIR}/data-leadership.txt"
-    echo "._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._." 
+    echo "[-].[-].[_].[-].[-].[_].[-].[-].[_].[-].[-].[_].[-]" 
     echo "Check leadership-schedule for ${poolName} finished "
     echo "**************************************************"
     
