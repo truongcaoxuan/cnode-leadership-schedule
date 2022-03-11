@@ -11,7 +11,7 @@ cp pool-list.json /opt/cardano/cnode/files/
 cp check-leadership.sh /opt/cardano/cnode/scripts/
 ```
 
-## Step3: Edit your pool-list
+## Step3: Modify your pool-list
 ```
 nano /opt/cardano/cnode/files/pool-list.json
 ```
