@@ -21,7 +21,7 @@ echo "${poolTicker}"
 # Get number poolTicker                               #
 #######################################################
 echo "-------------------------------------------------"
-totalPool=$(echo -n "$(cat /opt/cardano/cnode/files/pool-list.json | jq -r 'keys[]')" | grep -c '^')
+totalPool=$(echo -n "${poolTicker}" | grep -c '^')
 echo "Total Pool Ticker: ${totalPool}"
 
 #######################################################
