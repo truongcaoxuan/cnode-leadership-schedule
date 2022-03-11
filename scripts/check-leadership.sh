@@ -31,7 +31,7 @@ echo "-------------------------------------------------"
 currentDate=$(TZ="Asia/Ho_Chi_Minh" date +"%A, %d/%m/%Y %H:%M")
 echo "Current Date and Time is: " 
 echo "${currentDate}"
-echo "${currentDate}" > /tmp/data-leadership.txt
+echo "${currentDate}" > "${DATA_DIR}/data-leadership.txt"
 
 #######################################################
 # Chose mainnet/testnet parameters                    #
@@ -69,7 +69,7 @@ do
   let "i++"
   echo "[${i}/${totalPool}] Start check leadership-schedule for ${poolName} pool" 
   
-  poolID=$(cat pool-list.json | jq -r .${poolName})
+  poolID=$(cat /opt/cardano/cnode/files/pool-list.json | jq -r .${poolName})
   echo "${poolID}"
   
   if [[ -z ${poolID} ]]; then
@@ -77,7 +77,7 @@ do
     let "i--"
   else
     echo "${poolName} leadership-schedule processing" 
-    echo "${poolName} leadership-schedule" >> /tmp/data-leadership.txt
+    echo "${poolName} leadership-schedule" >> "${DATA_DIR}/data-leadership.txt"
     cardano-cli query leadership-schedule \
      "${net}" \
      --genesis /opt/cardano/cnode/files/shelley-genesis.json \
