@@ -24,3 +24,4 @@ cd /opt/cardano/cnode/scripts
 chmod +x check-leadership.sh
 ./check-leadership.sh
 ```
+*The file data leadership schedule store in /tmp/data-leadership.txt*
