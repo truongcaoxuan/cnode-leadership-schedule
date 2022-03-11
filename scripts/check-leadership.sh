@@ -1,4 +1,13 @@
 #!/bin/bash
+######################################
+# User Variables - Change as desired #
+# Leave as is if unsure              #
+######################################
+DATA_DIR="/tmp"                      # Folder where your data leadership schedule will be sent to
+
+######################################
+# Do NOT modify code below           #
+######################################
 
 #######################################################
 # Get poolTicker list                                 #
@@ -74,7 +83,7 @@ do
      --genesis /opt/cardano/cnode/files/shelley-genesis.json \
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
-     ${epoch} | tee -a /tmp/data-leadership.txt
+     ${epoch} | tee -a "${DATA_DIR}/data-leadership.txt"
     echo "._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._." 
     echo "Check leadership-schedule for ${poolName} finished "
     echo "**************************************************"
