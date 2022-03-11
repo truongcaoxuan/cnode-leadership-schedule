@@ -22,7 +22,7 @@ echo "-------------------------------------------------"
 currentDate=$(TZ="Asia/Ho_Chi_Minh" date +"%A, %d/%m/%Y %H:%M")
 echo "Current Date and Time is: " 
 echo "${currentDate}"
-echo "${currentDate}" > data-leadership.txt
+echo "${currentDate}" > /tmp/data-leadership.txt
 
 #######################################################
 # Chose the epoch parameters                          #
@@ -68,13 +68,13 @@ do
     let "i--"
   else
     echo "${poolName} leadership-schedule processing" 
-    echo "${poolName} leadership-schedule" >> data-leadership.txt
+    echo "${poolName} leadership-schedule" >> /tmp/data-leadership.txt
     cardano-cli query leadership-schedule \
      ${net} \
      --genesis /opt/cardano/cnode/files/shelley-genesis.json \
      --stake-pool-id  "${poolID}" \
      --vrf-signing-key-file "/opt/cardano/cnode/priv/pool/${poolName}/vrf.skey" \
-     ${epoch} >> data-leadership.txt
+     ${epoch} >> /tmp/data-leadership.txt
     echo "._._._._._._._._._._._._._._._._._._._._._._._._._." 
     echo "Check leadership-schedule for ${poolName} finished "
     echo "**************************************************"
