@@ -2,7 +2,7 @@ This scripts using for Cardano SPO to query leadership schedule
 
 ## Step1: Git it
 ```
-git https://github.com/truongcaoxuan/cnode-leadership-schedule.git
+git clone https://github.com/truongcaoxuan/cnode-leadership-schedule.git
 ```
 
 ## Step2: Copy files and scripts
